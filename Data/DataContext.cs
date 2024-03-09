@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace iMate.API.Db
+namespace iMate.API.Data
 {
     public class DataContext : DbContext
     {

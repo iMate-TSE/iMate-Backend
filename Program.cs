@@ -1,4 +1,4 @@
-using iMate.API.Db;
+using iMate.API.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,4 +1,4 @@
-﻿namespace iMate.API.Db
+﻿namespace iMate.API.Data
 {
     public abstract class BaseRepository
     {
