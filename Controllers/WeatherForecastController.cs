@@ -1,5 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
+/*
+ * https://learn.microsoft.com/en-gb/aspnet/core/mobile/native-mobile-backend?view=aspnetcore-8.0
+ * https://learn.microsoft.com/en-us/xamarin/cross-platform/deploy-test/connect-to-local-web-services
+ * https://learn.microsoft.com/en-us/training/modules/build-web-api-minimal-database/3-exercise-add-entity-framework-core
+ * https://learn.microsoft.com/en-us/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net
+ */
+
 namespace iMate.API.Controllers
 {
     [ApiController]
