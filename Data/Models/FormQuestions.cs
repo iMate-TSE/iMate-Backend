@@ -7,9 +7,12 @@ namespace iMate.API.Data.Models
     {
         [Key]
         [Required]
-        [ForeignKey(nameof(updateID))]
-        public int updateID { get; set; }
+        public int formQuestionID { get; set; }
 
         public string formQuestions { get; set; }
+
+        public ICollection<string> multipleChoice { get; set; } = new List<string>();
+
+        public bool isHappy { get; set; }
     }
 }

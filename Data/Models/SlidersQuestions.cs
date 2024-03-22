@@ -7,9 +7,14 @@ namespace iMate.API.Data.Models
     {
         [Key]
         [Required]
-        [ForeignKey(nameof(updateID))]
-        public int updateID { get; set; }
+        public int silderQuestionID { get; set; }
 
         public string sliderQuestions { get; set; }
+
+        public string sliderOption1 { get; set; }
+
+        public string sliderOption2 { get; set; }
+
+        public bool isHappy { get; set;}
     }
 }

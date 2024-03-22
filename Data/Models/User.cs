@@ -13,6 +13,10 @@ namespace iMate.API.Data.Models
 
         public string avatarPath { get; set; }
 
+        public int age { get; set; }
+
+        public string gender { get; set; }
+
         public int credits { get; set; }
 
         public int streak { get; set; }

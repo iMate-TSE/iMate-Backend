@@ -3,18 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace iMate.API.Data.Models
 {
-    public class TarotCards
+    public class Mood
     {
         [Key]
         [Required]
-        public int cardID { get; set; }
+        [ForeignKey(nameof(userID))]
+        public int userID { get; set; }
 
-        public int cardCreditsValue { get; set; }
+        public DateOnly date { get; set; }
 
         public string mood { get; set; }
-
-        public string targetMood { get; set; }
-
-        public int moodID { get; set; }
     }
 }
