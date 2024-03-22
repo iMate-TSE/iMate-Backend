@@ -34,7 +34,7 @@ namespace iMate.API.Controllers
         {
             MoodService EmotionClassifier = new MoodService();
 
-            string mood = EmotionClassifier.ComputePAD(Pleasure, Arousal, Dominance);
+            string mood = EmotionClassifier.ClassifyEmotionByPAD(Pleasure, Arousal, Dominance);
 
             return mood;
         }

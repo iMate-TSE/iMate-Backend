@@ -10,19 +10,19 @@
              * 0.5-0.7 = Moderate
              * 0.8-1.0 = High 
              */
-            //  P      A    D
+            //  P     A     D
             { (1.0f, 1.0f, 1.0f), "Excited" },
-            { (1.0f, 0.6f, 1.0f), "Happy" },
-            { (0.9f, 0.3f, 0.8f), "Loved/ Grateful" },
+            { (1.0f, 0.5f, 1.0f), "Happy" },
+            { (0.9f, 0.2f, 0.8f), "Loved/ Grateful" },
             { (0.9f, 0.2f, 0.2f), "Relaxed" },
-            { (0.2f, 0.9f, 1.0f), "Angry" },
-            { (0.3f, 0.9f, 0.8f), "Stressed" },
-            { (0.1f, 0.6f, 0.1f), "Anxious" },
-            { (0.1f, 0.7f, 0.1f), "Disgust" },
+            { (0.1f, 0.9f, 1.0f), "Angry" },
+            { (0.2f, 0.9f, 0.7f), "Stressed" },
+            { (0.1f, 0.6f, 0.4f), "Anxious" },
+            { (0.0f, 0.7f, 0.45f), "Disgust" },
             { (0.1f, 0.1f, 0.1f), "Sad" },
-            { (0.2f, 0.2f, 0.3f), "Bored" },
+            { (0.2f, 0.1f, 0.3f), "Bored" },
             { (0.4f, 0.4f, 0.4f), "Sleepy" },
-            { (0.1f, 0.3f, 0.1f), "Lonely" },
+            { (0.1f, 0.3f, 0.0f), "Lonely" },
             { (0.0f, 0.0f, 0.0f), "Depressed" },
         };
 
@@ -50,18 +50,13 @@
             // Sort the dictionary 
             var sortedDict = distances.OrderBy(distance => distance.Value);
 
-            foreach (var kvp in sortedDict)
-            {
-                Console.WriteLine($"{kvp.Key} = {kvp.Value}");
-            }
-
             //  return the key of the smallest distance
             return sortedDict.First().Key;
         }
 
-        public string ComputePAD(int PleasureDispleasure, int ArousalNonArousal, int DominantSubmissive)
+        public string ClassifyEmotionByPAD(int PleasureDispleasure, int ArousalNonArousal, int DominantSubmissive)
         {
-            //  normalise values placing range from 1-10
+            //  normalise values placing range from 0-1
             float PD_n = PleasureDispleasure / 10f;
             float AN_n = ArousalNonArousal / 10f;
             float DS_n = DominantSubmissive / 10f;
