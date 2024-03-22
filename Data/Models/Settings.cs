@@ -7,6 +7,9 @@ namespace iMate.API.Data.Models
     {
         [Key]
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         [ForeignKey(nameof(userID))]
         public int userID { get; set; }
 

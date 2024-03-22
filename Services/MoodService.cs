@@ -1,7 +1,7 @@
 ﻿namespace iMate.API.Services
 {
     using PADCoordinateVector = (float, float, float);
-    
+
     public class MoodService 
     {
         Dictionary<PADCoordinateVector, string> pad_ranges = new Dictionary<PADCoordinateVector, string>()

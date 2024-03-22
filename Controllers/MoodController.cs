@@ -38,6 +38,5 @@ namespace iMate.API.Controllers
 
             return mood;
         }
-        
     }
 }

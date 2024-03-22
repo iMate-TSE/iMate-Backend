@@ -6,6 +6,8 @@ namespace iMate.API.Data.Models
     public class Journal
     {
         [Key]
+        public int Id { get; set; }
+
         [Required]
         [ForeignKey(nameof(userID))]
         public int userID { get; set; }

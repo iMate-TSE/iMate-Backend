@@ -7,6 +7,8 @@ namespace iMate.API.Data.Models
     public class Tasks
     {
         [Key]
+        public int Id { get; set; }
+
         [Required]
         [ForeignKey(nameof(cardID))]
         public int cardID { get; set; }
