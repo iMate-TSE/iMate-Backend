@@ -5,11 +5,11 @@ namespace iMate.API.Data.Models
 {
     public class FormQuestions
     {
-        [Key]
-        [Required]
+        [Key, Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int formQuestionID { get; set; }
 
-        public string formQuestions { get; set; }
+        public string? Question { get; set; }
 
         public ICollection<string> multipleChoice { get; set; } = new List<string>();
 
