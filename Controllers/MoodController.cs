@@ -1,4 +1,5 @@
-﻿using iMate.API.Services;
+﻿using iMate.API.Data.Models;
+using iMate.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
@@ -29,12 +30,23 @@ namespace iMate.API.Controllers
     [Route("api/v1/[controller]")]
     public class MoodController : ControllerBaseExtended
     {
-        [HttpPost]
-        public string calculateMood(int Pleasure, int Arousal, int Dominance)
-        {
-            MoodService EmotionClassifier = new MoodService();
+        protected readonly MoodService _service;
 
-            string mood = EmotionClassifier.ClassifyEmotionByPAD(Pleasure, Arousal, Dominance);
+        public MoodController(MoodService service)
+        {
+            _service = service;
+        }
+
+        [HttpPost]
+        public async Task<string> calculateMood(int Pleasure, int Arousal, int Dominance)
+        {
+            // http://localhost:5137/api/v1/Mood?Pleasure=2&Arousal=0&Dominance=5
+
+            List<PadRanges> padRanges = (await _service.GetPADDictionary()).ToList();
+
+            EmotionClassifier classifier = new EmotionClassifier(padRanges);
+
+            string mood = classifier.ClassifyEmotionByPAD(Pleasure, Arousal, Dominance);
 
             return mood;
         }
