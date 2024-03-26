@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using iMate.API.Data;
@@ -11,9 +12,11 @@ using iMate.API.Data;
 namespace iMate.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240325180842_SeedingCards")]
+    partial class SeedingCards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -288,7 +291,7 @@ namespace iMate.API.Migrations
                     b.HasData(
                         new
                         {
-                            cardID = 174,
+                            cardID = 175,
                             Content = "Plan a fun outing or adventure.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -296,7 +299,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 175,
+                            cardID = 176,
                             Content = "Listen to upbeat music and dance.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -304,7 +307,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 176,
+                            cardID = 177,
                             Content = "Engage in a thrilling activity like rollerblading or rock climbing.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -312,7 +315,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 177,
+                            cardID = 178,
                             Content = "Share your excitement with friends or loved ones.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -320,7 +323,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 178,
+                            cardID = 179,
                             Content = "Watch an exciting movie or read an engaging book.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -328,7 +331,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 179,
+                            cardID = 180,
                             Content = "Try a new hobby or learn something new.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -336,7 +339,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 180,
+                            cardID = 181,
                             Content = "Exercise or go for a run to release energy.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -344,7 +347,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 181,
+                            cardID = 182,
                             Content = "Attend a live event or concert.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -352,7 +355,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 182,
+                            cardID = 183,
                             Content = "Set goals and make plans for the future.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -360,7 +363,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 183,
+                            cardID = 184,
                             Content = "Express gratitude for the things that bring you excitement.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -368,7 +371,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 184,
+                            cardID = 185,
                             Content = "Enjoy the moment: Embrace the thrill.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -376,7 +379,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 185,
+                            cardID = 186,
                             Content = "Dance it out: Move to the rhythm.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -384,7 +387,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 186,
+                            cardID = 187,
                             Content = "Visualize success: See your dreams realized.",
                             cardCreditsValue = 10,
                             moodID = 2,
@@ -392,7 +395,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 187,
+                            cardID = 188,
                             Content = "Spend time with loved ones.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -400,7 +403,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 188,
+                            cardID = 189,
                             Content = "Practice gratitude by listing things you're thankful for.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -408,7 +411,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 189,
+                            cardID = 190,
                             Content = "Engage in activities that bring you joy, such as painting or cooking.",
                             cardCreditsValue = 60,
                             moodID = 1,
@@ -416,7 +419,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 190,
+                            cardID = 191,
                             Content = "Exercise or go for a walk in nature.",
                             cardCreditsValue = 45,
                             moodID = 1,
@@ -424,7 +427,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 191,
+                            cardID = 192,
                             Content = "Watch a comedy show or funny movie.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -432,7 +435,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 192,
+                            cardID = 193,
                             Content = "Help someone else or perform acts of kindness.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -440,7 +443,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 193,
+                            cardID = 194,
                             Content = "Reflect on past happy memories.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -448,7 +451,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 194,
+                            cardID = 195,
                             Content = "Practice mindfulness or meditation.",
                             cardCreditsValue = 20,
                             moodID = 1,
@@ -456,7 +459,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 195,
+                            cardID = 196,
                             Content = "Focus on positive affirmations.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -464,7 +467,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 196,
+                            cardID = 197,
                             Content = "Treat yourself to something you enjoy, like a favourite meal or dessert.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -472,7 +475,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 197,
+                            cardID = 198,
                             Content = "Practice deep breathing or meditation for a few minutes.",
                             cardCreditsValue = 10,
                             moodID = 1,
@@ -480,7 +483,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 198,
+                            cardID = 199,
                             Content = "Listen to uplifting music or a favourite playlist.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -488,7 +491,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 199,
+                            cardID = 200,
                             Content = "Read a book or listen to an audiobook.",
                             cardCreditsValue = 60,
                             moodID = 1,
@@ -496,7 +499,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 200,
+                            cardID = 201,
                             Content = "Take a warm bath or shower.",
                             cardCreditsValue = 20,
                             moodID = 1,
@@ -504,7 +507,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 201,
+                            cardID = 202,
                             Content = "Write down their thoughts and feelings in a journal.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -512,7 +515,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 202,
+                            cardID = 203,
                             Content = "Spend time with a pet, if available.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -520,7 +523,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 203,
+                            cardID = 204,
                             Content = "Plan a future trip or activity to look forward to.",
                             cardCreditsValue = 60,
                             moodID = 1,
@@ -528,7 +531,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 204,
+                            cardID = 205,
                             Content = "Declutter and organize a small area of their living space.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -536,7 +539,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 205,
+                            cardID = 206,
                             Content = "Look at old photos or videos that bring back happy memories.",
                             cardCreditsValue = 20,
                             moodID = 1,
@@ -544,7 +547,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 206,
+                            cardID = 207,
                             Content = "Try a new recipe or restaurant.",
                             cardCreditsValue = 60,
                             moodID = 1,
@@ -552,7 +555,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 207,
+                            cardID = 208,
                             Content = "Create a vision board of their goals and dreams.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -560,7 +563,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 208,
+                            cardID = 209,
                             Content = "Spend quality time with loved ones.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -568,7 +571,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 209,
+                            cardID = 210,
                             Content = "Write a letter or message expressing gratitude to someone special.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -576,7 +579,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 210,
+                            cardID = 211,
                             Content = "Reflect on the positive aspects of your life.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -584,7 +587,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 211,
+                            cardID = 212,
                             Content = "Perform random acts of kindness for others.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -592,7 +595,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 212,
+                            cardID = 213,
                             Content = "Volunteer for a cause you care about.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -600,7 +603,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 213,
+                            cardID = 214,
                             Content = "Hug someone you care about.",
                             cardCreditsValue = 10,
                             moodID = 3,
@@ -608,7 +611,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 214,
+                            cardID = 215,
                             Content = "Practice self-love and self-care activities.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -616,7 +619,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 215,
+                            cardID = 216,
                             Content = "Keep a gratitude journal and write down things you're thankful for.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -624,7 +627,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 216,
+                            cardID = 217,
                             Content = "Share compliments with others.",
                             cardCreditsValue = 10,
                             moodID = 3,
@@ -632,7 +635,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 217,
+                            cardID = 218,
                             Content = "Count your blessings and focus on what you have rather than what you lack.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -640,7 +643,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 218,
+                            cardID = 219,
                             Content = "Recall happy memories: Bask in nostalgia.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -648,7 +651,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 219,
+                            cardID = 220,
                             Content = "Practice self-love: Treat yourself kindly.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -656,7 +659,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 220,
+                            cardID = 221,
                             Content = "Say 'I love you': Share affection openly.",
                             cardCreditsValue = 10,
                             moodID = 3,
@@ -664,7 +667,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 221,
+                            cardID = 222,
                             Content = "Reflect on blessings: Gratitude brings peace.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -672,7 +675,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 222,
+                            cardID = 223,
                             Content = "Take a warm bath or shower.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -680,7 +683,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 223,
+                            cardID = 224,
                             Content = "Practice deep breathing exercises on the home page.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -688,7 +691,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 224,
+                            cardID = 225,
                             Content = "Listen to calming music or nature sounds.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -696,7 +699,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 225,
+                            cardID = 226,
                             Content = "Practice yoga or gentle stretching.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -704,7 +707,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 226,
+                            cardID = 227,
                             Content = "Spend time in nature, such as going for a walk in the park.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -712,7 +715,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 227,
+                            cardID = 228,
                             Content = "Engage in a hobby like knitting or gardening.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -720,7 +723,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 228,
+                            cardID = 229,
                             Content = "Read a book or listen to an audiobook.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -728,7 +731,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 229,
+                            cardID = 230,
                             Content = "Practice mindfulness or meditation.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -736,7 +739,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 230,
+                            cardID = 231,
                             Content = "Get a massage or practice self-massage techniques.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -744,7 +747,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 231,
+                            cardID = 232,
                             Content = "Disconnect from screens and technology for a while.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -752,7 +755,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 232,
+                            cardID = 233,
                             Content = "Unwind: Let go of tension.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -760,7 +763,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 233,
+                            cardID = 234,
                             Content = "Find a cosy spot: Nestle in comfort.",
                             cardCreditsValue = 10,
                             moodID = 4,
@@ -768,7 +771,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 234,
+                            cardID = 235,
                             Content = "Listen to nature: Soothing sounds of tranquillity.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -776,7 +779,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 235,
+                            cardID = 236,
                             Content = "Drink herbal tea: Sip serenity.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -784,7 +787,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 236,
+                            cardID = 237,
                             Content = "Enjoy a bubble bath: Soak away stress.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -792,7 +795,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 237,
+                            cardID = 238,
                             Content = "Meditate: Quiet the mind.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -800,7 +803,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 238,
+                            cardID = 239,
                             Content = "Take deep breaths to calm down.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -808,7 +811,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 239,
+                            cardID = 240,
                             Content = "Remove yourself from the situation temporarily.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -816,7 +819,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 240,
+                            cardID = 241,
                             Content = "Engage in physical activity to release pent-up energy.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -824,7 +827,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 241,
+                            cardID = 242,
                             Content = "Practice mindfulness or meditation to centre yourself.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -832,7 +835,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 242,
+                            cardID = 243,
                             Content = "Write down your feelings in a journal.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -840,7 +843,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 243,
+                            cardID = 244,
                             Content = "Talk to a trusted friend or family member about what's bothering you.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -848,7 +851,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 244,
+                            cardID = 245,
                             Content = "Practice empathy and try to see the situation from another perspective.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -856,7 +859,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 245,
+                            cardID = 246,
                             Content = "Count to ten before responding to avoid saying something you might regret.",
                             cardCreditsValue = 10,
                             moodID = 4,
@@ -864,7 +867,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 246,
+                            cardID = 247,
                             Content = "Channel your anger into a constructive activity like cleaning or organizing.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -872,7 +875,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 247,
+                            cardID = 248,
                             Content = "Seek professional help if anger becomes a recurring issue.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -880,7 +883,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 248,
+                            cardID = 249,
                             Content = "Find perspective: Consider the bigger picture.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -888,7 +891,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 249,
+                            cardID = 250,
                             Content = "Use humour: Lighten the mood, watch a comedy.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -896,7 +899,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 250,
+                            cardID = 251,
                             Content = "Practice forgiveness: Let go of resentment.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -904,7 +907,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 251,
+                            cardID = 252,
                             Content = "Journal anger: Write to process emotions.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -912,7 +915,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 252,
+                            cardID = 253,
                             Content = "Take breaks throughout the day to relax and recharge.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -920,7 +923,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 253,
+                            cardID = 254,
                             Content = "Prioritize tasks and break them down into smaller, manageable steps.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -928,7 +931,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 254,
+                            cardID = 255,
                             Content = "Practice deep breathing or progressive muscle relaxation.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -936,7 +939,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 255,
+                            cardID = 256,
                             Content = "Delegate responsibilities: Share the load if possible.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -944,7 +947,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 256,
+                            cardID = 257,
                             Content = "Get organized: maybe make a list of tasks to do.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -952,7 +955,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 257,
+                            cardID = 258,
                             Content = "Engage in physical activity like going for a walk or practicing yoga.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -960,7 +963,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 258,
+                            cardID = 259,
                             Content = "Limit caffeine and sugar intake.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -968,7 +971,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 259,
+                            cardID = 260,
                             Content = "Get plenty of sleep and establish a regular sleep schedule.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -976,7 +979,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 260,
+                            cardID = 261,
                             Content = "Practice time management techniques: try time blocking.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -984,7 +987,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 261,
+                            cardID = 262,
                             Content = "Talk it out: Share feelings with a friend.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -992,7 +995,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 262,
+                            cardID = 263,
                             Content = "Write it down: Journal to process emotions.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -1000,7 +1003,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 263,
+                            cardID = 264,
                             Content = "Set boundaries: Protect your peace.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1008,7 +1011,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 264,
+                            cardID = 265,
                             Content = "Challenge negative thoughts and replace them with positive affirmations.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1016,7 +1019,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 265,
+                            cardID = 266,
                             Content = "Engage in activities that distract your mind, such as puzzles or games.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1024,7 +1027,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 266,
+                            cardID = 267,
                             Content = "Practice mindfulness or meditation to stay present.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1032,7 +1035,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 267,
+                            cardID = 268,
                             Content = "Limit exposure to triggers like caffeine or stressful situations.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -1040,7 +1043,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 268,
+                            cardID = 269,
                             Content = "Talk to someone you trust about your feelings.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1048,7 +1051,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 269,
+                            cardID = 270,
                             Content = "Create a calming environment with soothing music, aromatherapy or just your bed.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1056,7 +1059,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 270,
+                            cardID = 271,
                             Content = "Focus on what you can control rather than what you can't.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1064,7 +1067,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 271,
+                            cardID = 272,
                             Content = "Exercise to reduce anxiety levels.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1072,7 +1075,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 272,
+                            cardID = 273,
                             Content = "Write worries: Release them on paper.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -1080,7 +1083,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 273,
+                            cardID = 274,
                             Content = "Ground yourself: 5-4-3-2-1 list 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1088,7 +1091,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 274,
+                            cardID = 275,
                             Content = "Find calm: Listen to soothing music.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1096,7 +1099,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 275,
+                            cardID = 276,
                             Content = "Stretch and relax: Ease tension physically.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1104,7 +1107,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 276,
+                            cardID = 277,
                             Content = "Distract yourself: Engage in a hobby.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -1112,7 +1115,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 277,
+                            cardID = 278,
                             Content = "Use affirmations: Positive self-talk, you are amazing and you are doing so well right now.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -1120,7 +1123,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 278,
+                            cardID = 279,
                             Content = "Remove yourself from the source of disgust if possible.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -1128,7 +1131,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 279,
+                            cardID = 280,
                             Content = "Practice deep breathing to calm your physical reactions.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -1136,7 +1139,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 280,
+                            cardID = 281,
                             Content = "Focus on positive aspects of the situation or find humour in it.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1144,7 +1147,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 281,
+                            cardID = 282,
                             Content = "Engage in a pleasurable activity to shift your focus.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1152,7 +1155,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 282,
+                            cardID = 283,
                             Content = "Talk to a friend or loved one about how you're feeling.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1160,7 +1163,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 283,
+                            cardID = 284,
                             Content = "Practice acceptance and acknowledge that feelings of disgust are temporary.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1168,7 +1171,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 284,
+                            cardID = 285,
                             Content = "Engage in self-care activities to nurture yourself.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -1176,7 +1179,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 285,
+                            cardID = 286,
                             Content = "Challenge irrational thoughts that may be fuelling your disgust.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1184,7 +1187,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 286,
+                            cardID = 287,
                             Content = "Seek out positive distractions like watching a funny movie or going for a walk.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1192,7 +1195,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 287,
+                            cardID = 288,
                             Content = "Practice gratitude to shift your perspective.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -1200,7 +1203,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 288,
+                            cardID = 289,
                             Content = "Acknowledge feelings: Validate your emotions - they are valid.",
                             cardCreditsValue = 15,
                             moodID = 4,
@@ -1208,7 +1211,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 289,
+                            cardID = 290,
                             Content = "Vent constructively: Express frustrations calmly.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1216,7 +1219,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 290,
+                            cardID = 291,
                             Content = "Practice empathy: Understand different perspectives.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1224,7 +1227,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 291,
+                            cardID = 292,
                             Content = "Channel disgust: Use it as motivation for change.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1232,7 +1235,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 292,
+                            cardID = 293,
                             Content = "Challenge assumptions: Question underlying beliefs.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1240,7 +1243,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 293,
+                            cardID = 294,
                             Content = "Reflect on triggers: Identify what causes discomfort.",
                             cardCreditsValue = 20,
                             moodID = 4,
@@ -1248,7 +1251,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 294,
+                            cardID = 295,
                             Content = "Reach out to friends or loved ones for support.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1256,7 +1259,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 295,
+                            cardID = 296,
                             Content = "Engage in activities that bring you joy or comfort, like listening to music or cooking your favourite meal.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1264,7 +1267,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 296,
+                            cardID = 297,
                             Content = "Practice self-compassion and avoid self-criticism.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1272,7 +1275,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 297,
+                            cardID = 298,
                             Content = "Spend time with pets, if you have them, as they can provide comfort and companionship.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1280,7 +1283,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 298,
+                            cardID = 299,
                             Content = "Get outside and spend time in nature.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1288,7 +1291,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 299,
+                            cardID = 300,
                             Content = "Seek professional help if sadness persists or becomes overwhelming.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -1296,7 +1299,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 300,
+                            cardID = 301,
                             Content = "Practice mindfulness or meditation to help regulate emotions.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1304,7 +1307,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 301,
+                            cardID = 302,
                             Content = "Write down your feelings in a journal.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -1312,7 +1315,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 302,
+                            cardID = 303,
                             Content = "Engage in activities that give you a sense of accomplishment, like completing a small task or hobby.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1320,7 +1323,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 303,
+                            cardID = 304,
                             Content = "Connect with others who may be experiencing similar feelings to feel less alone.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1328,7 +1331,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 304,
+                            cardID = 305,
                             Content = "Try something new or engage in a hobby you enjoy.",
                             cardCreditsValue = 10,
                             moodID = 4,
@@ -1336,7 +1339,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 305,
+                            cardID = 306,
                             Content = "Reach out to friends or family for social interaction.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1344,7 +1347,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 306,
+                            cardID = 307,
                             Content = "Plan an outing or activity to break up the monotony.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -1352,7 +1355,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 307,
+                            cardID = 308,
                             Content = "Watch a movie or TV show you've been wanting to see.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1360,7 +1363,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 308,
+                            cardID = 309,
                             Content = "Take a walk or explore a new area of your neighbourhood.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -1368,7 +1371,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 309,
+                            cardID = 310,
                             Content = "Read a book or listen to an audiobook.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -1376,7 +1379,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 310,
+                            cardID = 311,
                             Content = "Volunteer for a cause you care about to add purpose to your day.",
                             cardCreditsValue = 60,
                             moodID = 4,
@@ -1384,7 +1387,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 311,
+                            cardID = 312,
                             Content = "Learn something new through online courses or tutorials.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -1392,7 +1395,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 312,
+                            cardID = 313,
                             Content = "Get creative by drawing, painting, or crafting.",
                             cardCreditsValue = 45,
                             moodID = 4,
@@ -1400,7 +1403,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 313,
+                            cardID = 314,
                             Content = "Reflect on your goals and make plans to work towards them.",
                             cardCreditsValue = 30,
                             moodID = 4,
@@ -1408,7 +1411,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 314,
+                            cardID = 315,
                             Content = "Take a short nap if possible.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1416,7 +1419,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 315,
+                            cardID = 316,
                             Content = "Drink a glass of cold water or splash cold water on your face to wake up.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1424,7 +1427,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 316,
+                            cardID = 317,
                             Content = "Get up and move around to increase blood flow and alertness.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -1432,7 +1435,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 317,
+                            cardID = 318,
                             Content = "Open windows or turn on bright lights to increase exposure to light.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1440,7 +1443,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 318,
+                            cardID = 319,
                             Content = "Have a small snack with protein to boost energy levels.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1448,7 +1451,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 319,
+                            cardID = 320,
                             Content = "Listen to upbeat music or engage in an activity that stimulates your mind.",
                             cardCreditsValue = 30,
                             moodID = 1,
@@ -1456,7 +1459,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 320,
+                            cardID = 321,
                             Content = "Practice deep breathing exercises to increase oxygen flow.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1464,7 +1467,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 321,
+                            cardID = 322,
                             Content = "Take a brisk walk outside to get fresh air and wake up your body.",
                             cardCreditsValue = 45,
                             moodID = 1,
@@ -1472,7 +1475,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 322,
+                            cardID = 323,
                             Content = "Avoid caffeine late in the day to prevent disrupting your sleep schedule.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1480,7 +1483,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 323,
+                            cardID = 324,
                             Content = "Splash cold water: Invigorate your senses.",
                             cardCreditsValue = 15,
                             moodID = 1,
@@ -1488,7 +1491,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 324,
+                            cardID = 325,
                             Content = "Stretch: Increase blood flow.",
                             cardCreditsValue = 20,
                             moodID = 1,
@@ -1496,7 +1499,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 325,
+                            cardID = 326,
                             Content = "Change environment: Move to a different room.",
                             cardCreditsValue = 20,
                             moodID = 1,
@@ -1504,7 +1507,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 326,
+                            cardID = 327,
                             Content = "Reach out to friends or family members for a chat or video call.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1512,7 +1515,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 327,
+                            cardID = 328,
                             Content = "Join a club or group with similar interests to meet new people.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1520,7 +1523,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 328,
+                            cardID = 329,
                             Content = "Volunteer for a cause you care about to connect with others and make a difference.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -1528,7 +1531,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 329,
+                            cardID = 330,
                             Content = "Engage in activities you enjoy on your own, such as reading, cooking, or watching a movie.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1536,7 +1539,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 330,
+                            cardID = 331,
                             Content = "Spend time with pets, as they can provide companionship and comfort.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1544,7 +1547,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 331,
+                            cardID = 332,
                             Content = "Connect with old friends or acquaintances through social media or messaging apps.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1552,7 +1555,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 332,
+                            cardID = 333,
                             Content = "Attend social events or gatherings in your community to meet new people.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1560,7 +1563,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 333,
+                            cardID = 334,
                             Content = "Practice self-care activities to nurture yourself and boost your mood.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1568,7 +1571,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 334,
+                            cardID = 335,
                             Content = "Engage in hobbies or activities that bring you fulfilment and joy.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1576,7 +1579,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 335,
+                            cardID = 336,
                             Content = "Volunteer your time to help others, which can provide a sense of purpose and connection.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -1584,7 +1587,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 336,
+                            cardID = 337,
                             Content = "Write in a journal to express your thoughts and feelings, helping you process emotions.",
                             cardCreditsValue = 15,
                             moodID = 3,
@@ -1592,7 +1595,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 337,
+                            cardID = 338,
                             Content = "Focus on building a strong relationship with yourself, practicing self-love and self-acceptance.",
                             cardCreditsValue = 20,
                             moodID = 3,
@@ -1600,7 +1603,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 338,
+                            cardID = 339,
                             Content = "Reach out: Talk to someone you trust.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1608,7 +1611,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 339,
+                            cardID = 340,
                             Content = "Practice self-care: Nurture your well-being (healthy eating, exercise, sleep hygiene).",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1616,7 +1619,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 340,
+                            cardID = 341,
                             Content = "Create a routine: Establish structure in your day.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1624,7 +1627,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 341,
+                            cardID = 342,
                             Content = "Set small goals: Celebrate every achievement, no matter how small.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1632,7 +1635,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 342,
+                            cardID = 343,
                             Content = "Stay active: Engage in physical activity, even a short walk can improve mood.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1640,7 +1643,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 343,
+                            cardID = 344,
                             Content = "Take a nap (if possible): Aim for 20-30 minutes to avoid sleep inertia.",
                             cardCreditsValue = 60,
                             moodID = 3,
@@ -1648,7 +1651,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 344,
+                            cardID = 345,
                             Content = "Limit isolation: Connect with loved ones, even virtually.",
                             cardCreditsValue = 45,
                             moodID = 3,
@@ -1656,7 +1659,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 345,
+                            cardID = 346,
                             Content = "Express yourself: Write in a journal, talk to a therapist, or express yourself creatively.",
                             cardCreditsValue = 30,
                             moodID = 3,
@@ -1664,7 +1667,7 @@ namespace iMate.API.Migrations
                         },
                         new
                         {
-                            cardID = 346,
+                            cardID = 347,
                             Content = "Focus on the present: Mindfulness exercises can help manage overwhelming thoughts.",
                             cardCreditsValue = 20,
                             moodID = 3,

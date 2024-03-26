@@ -31,17 +31,22 @@ namespace iMate.API.Controllers
     public class MoodController : ControllerBaseExtended
     {
         protected readonly MoodService _service;
+        
+        // Inject the mood service
 
         public MoodController(MoodService service)
         {
             _service = service;
         }
 
+        // POST route for mood calculation 
+
         [HttpPost]
         public async Task<string> calculateMood(int Pleasure, int Arousal, int Dominance)
         {
             // http://localhost:5137/api/v1/Mood?Pleasure=2&Arousal=0&Dominance=5
 
+            // get the ranges from the database
             List<PadRanges> padRanges = (await _service.GetPADDictionary()).ToList();
 
             EmotionClassifier classifier = new EmotionClassifier(padRanges);
