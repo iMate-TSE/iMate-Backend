@@ -6,34 +6,32 @@ namespace iMate.API.Services
 
     public class EmotionClassifier
     {
-        private Dictionary<PADCoordinateVector, string> pad_ranges;
+        private readonly Dictionary<PADCoordinateVector, string> _padRanges;
 
         public EmotionClassifier(List<PadRanges> ranges)
         {
-            this.pad_ranges = new Dictionary<PADCoordinateVector, string>();
+            this._padRanges = new Dictionary<PADCoordinateVector, string>();
 
             // Construct a dictionary from the data from the database
-            for (int i = 0; i < ranges.Count; i++)
+            foreach (var moodValue in ranges)
             {
-                PadRanges moodValue = ranges[i];
-
                 PADCoordinateVector vec = new PADCoordinateVector(
                     moodValue.valuePleasure, 
                     moodValue.valueArousal, 
                     moodValue.valueDominance
                 );
 
-                this.pad_ranges[vec] = moodValue.mood;
+                this._padRanges[vec] = moodValue.mood;
             }
         }
 
-        private float Euclidian_Distance(PADCoordinateVector pointA, PADCoordinateVector pointB)
+        private static float Euclidean_Distance(PADCoordinateVector pointA, PADCoordinateVector pointB)
         {
-            // compute the euclidian distance between points
-            float x_square = (float)Math.Pow((pointA.Item1 - pointB.Item1), 2);
-            float y_square = (float)Math.Pow((pointA.Item2 - pointB.Item2), 2);
-            float z_square = (float)Math.Pow((pointA.Item3 - pointB.Item3), 2);
-            return float.Sqrt(x_square + y_square + z_square);
+            // compute the Euclidean distance between points
+            float xSquare = (float)Math.Pow((pointA.Item1 - pointB.Item1), 2);
+            float ySquare = (float)Math.Pow((pointA.Item2 - pointB.Item2), 2);
+            float zSquare = (float)Math.Pow((pointA.Item3 - pointB.Item3), 2);
+            return float.Sqrt(xSquare + ySquare + zSquare);
         }
 
         private string KNN(PADCoordinateVector point)
@@ -41,11 +39,11 @@ namespace iMate.API.Services
             // store the distances to each point
             Dictionary<string, float> distances = new Dictionary<string, float>();
 
-            foreach (PADCoordinateVector coord in pad_ranges.Keys)
+            foreach (PADCoordinateVector coord in this._padRanges.Keys)
             {
                 // compute the distance to the current point 
-                float dist = Euclidian_Distance(point, coord);
-                distances.Add(pad_ranges[coord], dist);
+                float dist = Euclidean_Distance(point, coord);
+                distances.Add(this._padRanges[coord], dist);
             }
 
             // Sort the dictionary 
