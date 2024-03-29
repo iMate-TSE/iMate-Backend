@@ -1,5 +1,5 @@
 # A Guide to the Backend API
-The backend uses a library called ASP.NET it lets you write web services. This code will run to expose API endpoints which the Maui side (frontend will call)
+The backend uses a library called ASP.NET it lets you write web services. This code will run to expose API endpoints which the Maui side (frontend)
 
 ## Folders
 - Services: a middleman for anything you need.
