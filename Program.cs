@@ -27,10 +27,14 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("iMateDatabase"));
 });
 
+builder.Services.AddScoped<DatabaseSeeder>();
+
 var app = builder.Build();
 
 app.UseRouting();
 app.UseCors("corsapp");
+
+SeedDatabase();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -47,3 +51,12 @@ app.MapControllers();
 app.MapHub<ChatService>("/ChatHub");
 
 app.Run();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbSeeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
+        dbSeeder.Initialise();
+    }
+}

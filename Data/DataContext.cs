@@ -21,6 +21,8 @@ namespace iMate.API.Data
         public DbSet<TarotCards> TarotCards { get; set; }
 
         public DbSet<User> User { get; set; }
+        
+        public DbSet<AuthTokens> AuthTokens { get; set; }
 
         // seed on creation
         protected override void OnModelCreating(ModelBuilder modelBuilder)

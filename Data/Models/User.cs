@@ -14,7 +14,9 @@ namespace iMate.API.Data.Models
 
         public string? avatarPath { get; set; }
 
-        public int age { get; set; }
+        private string? encryptedPassword { get; set; }
+
+        public int? age { get; set; }
 
         public string? gender { get; set; }
 
@@ -23,7 +25,7 @@ namespace iMate.API.Data.Models
         public int streak { get; set; }
 
         [ForeignKey("settingsID")]
-        public int settingsID { get; set; }
+        public int? settingsID { get; set; }
 
         public Settings Settings { get; set; } = null!;
     }
