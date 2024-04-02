@@ -7,7 +7,7 @@ namespace iMate.API.Data.Models
     {
         [Key, Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int cardID { get; set; }
+        public int cardID { get; set; } = 0;
 
         public int cardCreditsValue { get; set; }
 
@@ -21,5 +21,17 @@ namespace iMate.API.Data.Models
 
         // Fact or Task or Other resource
         public string? Content { get; set; }
+
+        public static int id = 0;
+        
+        public TarotCards(int cardCreditsValue, int targetMoodId, int moodID, string Content)
+        {
+            id++;
+            this.cardID = id;
+            this.cardCreditsValue = cardCreditsValue;
+            this.targetMoodId = targetMoodId;
+            this.moodID = moodID;
+            this.Content = Content;
+        }
     }
 }

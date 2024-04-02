@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using iMate.API.Data;
@@ -11,9 +12,11 @@ using iMate.API.Data;
 namespace iMate.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240325181233_SeedingCardsAgain")]
+    partial class SeedingCardsAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,19 +24,6 @@ namespace iMate.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("iMate.API.Data.Models.AuthTokens", b =>
-                {
-                    b.Property<string>("token")
-                        .HasColumnType("text");
-
-                    b.Property<int>("userID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("token");
-
-                    b.ToTable("AuthTokens");
-                });
 
             modelBuilder.Entity("iMate.API.Data.Models.FormQuestions", b =>
                 {
@@ -1693,7 +1683,7 @@ namespace iMate.API.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("userID"));
 
-                    b.Property<int?>("age")
+                    b.Property<int>("age")
                         .HasColumnType("integer");
 
                     b.Property<string>("avatarPath")
@@ -1705,7 +1695,7 @@ namespace iMate.API.Migrations
                     b.Property<string>("gender")
                         .HasColumnType("text");
 
-                    b.Property<int?>("settingsID")
+                    b.Property<int>("settingsID")
                         .HasColumnType("integer");
 
                     b.Property<int>("streak")
@@ -1756,7 +1746,9 @@ namespace iMate.API.Migrations
                 {
                     b.HasOne("iMate.API.Data.Models.Settings", "Settings")
                         .WithOne("user")
-                        .HasForeignKey("iMate.API.Data.Models.User", "settingsID");
+                        .HasForeignKey("iMate.API.Data.Models.User", "settingsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Settings");
                 });

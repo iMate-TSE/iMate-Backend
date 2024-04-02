@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace iMate.API.Services
 {
-    public class MoodService : BaseRepository
+    public class MoodService(DataContext ctx) : BaseRepository(ctx)
     {
-        public MoodService(DataContext ctx) : base(ctx)
-        {
+        // Pass the context to the BaseRepo
 
-        }
+        // Defining all the database calls for the mood controller
 
         public async Task<IEnumerable<PadRanges>> GetPADDictionary()
         {
