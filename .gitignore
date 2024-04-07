@@ -526,3 +526,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,aspnetcore
 /appsettings.development.json
+/appsettings.Development.json

@@ -9,4 +9,13 @@ public class AuthTokens
     
     [Required, ForeignKey(nameof(userID))]
     public int userID { get; set; }
+
+    public AuthTokens() { }
+
+    public AuthTokens(int _userID, string _token)
+    {
+        this.userID = _userID;
+        this.token = _token;
+    }
+
 }

@@ -19,6 +19,8 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 
 builder.Services.AddSignalR();
 builder.Services.AddScoped<MoodService,  MoodService>();
+builder.Services.AddScoped<LoginService, LoginService>();
+builder.Services.AddScoped<SettingsService, SettingsService>();
 
 var configuration = builder.Configuration;
 

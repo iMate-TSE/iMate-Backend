@@ -23,5 +23,18 @@ namespace iMate.API.Data.Models
 
         // navigation reference
         public User? user { get; set; }
+
+        public Settings() { }
+
+        public Settings(User? user)
+        {
+            this.soundEffects = true;
+            this.reducedMotion = true;
+            this.motivationalMessages = true;
+            this.practiceReminder = true;
+            this.smartScheduling = true;
+            this.reminderTime = "15:00:00";
+            this.user = user;
+        }
     }
 }
