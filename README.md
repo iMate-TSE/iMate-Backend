@@ -63,4 +63,85 @@ namespace iMate.API.Services
 - This will contain all the functions which query the database for you to call from within the controller.
 
 Don't worry about anything else right now. When doing your own code you will need to add a service and controller.
-  
+
+## Connecting to the Frontend
+- You may notice the new HTTP Service on the maui side.
+- This connects to the api, it passed into a ViewModelBase
+- This will let you inject the http service into your viewmodels.
+
+**Using this**
+1. You will need to edit your view model to inherit this new ViewModelBase
+```cs
+    public partial class DeckViewModel : ViewModelBase
+    {
+        public ObservableCollection<Card> Cards { get; } = new ObservableCollection<Card>();
+
+        [ObservableProperty] 
+        private bool _hasCards;
+
+        // inject it into the constructor 
+        public DeckViewModel(IHttpService httpService) : base(httpService)
+        {
+            Cards = GetCards();
+            HasCards = !(Cards.Count > 0);
+        }
+    }
+```
+
+2. From here you have the ability to call the api: 
+*GetPizzas() is currently undefined it will be defined later don't get confused*
+```cs
+        public async void GetData()
+        {
+            List<Product> data = await HttpService.GetPizzas();
+        }
+```
+
+3. Now need to use the command architecture to define a command which will represent this function.
+
+```cs
+        public DeckViewModel(IHttpService httpService) : base(httpService)
+        {
+            Cards = GetCards();
+            HasCards = !(Cards.Count > 0);
+            // GetData wsa defined above
+            GetDataCommand = new Command(GetData);
+        }
+
+        public ICommand GetDataCommand { get; }
+```
+4. Commands allow you to use these things in the page itself:
+```xml
+<Button Text="Click this button" Command="{Binding GetPizzasCommand}" />
+```
+
+### Actual API Calls 
+This will happen inside the HTTPService Class, we will define the GetPizzas method
+```cs
+// task tells C# that the result might be slow to come back (as it will with a database)
+public async Task<List<Product>> GetPizzas() {
+    try {
+        // so we await and scope a request in this case to the /pizza route
+        using HttpResponseMessage response = await _httpClient.GetAsync("pizza");
+
+        // check to make sure we got the 200 status code
+        response.EnsureSuccessStatusCode();
+
+        // if we did we can read the response 
+        var jsonResponse = await (response.Content.ReadFromJsonAsync<List<Product>>());
+
+        // handle returning the response
+        if (jsonResponse != null) {
+            return jsonResponse;
+        } else {
+            return new List<Product>();
+         }
+    } catch (Exception ex) {
+        // if anything goes wrong just return an empty list
+        Console.WriteLine(ex.Message);
+        return new List<Product>();
+    }
+}
+```
+If you are not using a Get request (i.e you didn't put `[HttpGet]` on your controller you need to use a different method such as PostAsync.
+See the following: https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient
