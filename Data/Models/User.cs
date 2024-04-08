@@ -14,7 +14,7 @@ namespace iMate.API.Data.Models
 
         public string? avatarPath { get; set; }
 
-        private string? encryptedPassword { get; set; }
+        public string? encryptedPassword { get; set; }
 
         public int? age { get; set; }
 
@@ -28,5 +28,21 @@ namespace iMate.API.Data.Models
         public int? settingsID { get; set; }
 
         public Settings Settings { get; set; } = null!;
+
+        public User() { }
+        public User(string userName, string encryptedPassword) 
+        {
+            this.userName = userName;
+            this.avatarPath = null;
+            this.encryptedPassword = encryptedPassword;
+            this.age = null;
+            this.gender = null;
+            this.credits = 0;
+            this.streak = 0;
+            this.settingsID = null;
+
+        }
+
+
     }
 }
