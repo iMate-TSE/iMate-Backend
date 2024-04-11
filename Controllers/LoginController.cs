@@ -27,9 +27,21 @@ namespace iMate.API.Controllers
 
         [HttpPost]
         [Route("api/v1/[controller]/Signup")]
-        public void SignUp(string username, string password)
+        public void SignUp([FromBody] LoginRequest loginRequestData)
         {
-            _service.SignUp(username, password);
+            if (!ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+                string username = loginRequestData.Username;
+                string password = loginRequestData.Password;
+                if (username != null && password != null)
+                {
+                    _service.SignUp(username, password);
+                }
+            }
         }
 
         [HttpPost]

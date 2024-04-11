@@ -1,6 +1,7 @@
 ﻿using iMate.API.Data;
 using iMate.API.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,17 +11,18 @@ namespace iMate.API.Services
     {
 
 
-        public User GetUser(string username)
+        public User? GetUser(string username)
         {
+            
             var queryUsers =
-                from user in _context.User
-                where user.userName == username
-                select user;
+                     from user in _context.User
+                     where user.userName == username
+                     select user;
 
-            return queryUsers.FirstOrDefault();
+           return  queryUsers.SingleOrDefault(); ;
         }
 
-        public async void LogOut(User user)
+        public void LogOut(User? user)
         {
 
             var queryTokens =
@@ -28,65 +30,79 @@ namespace iMate.API.Services
                 where token.userID == user.userID
                 select token;
 
-            AuthTokens authToken = queryTokens.FirstOrDefault();
+            AuthTokens? authToken =  queryTokens.FirstOrDefault();
 
-            _context.AuthTokens.Remove(authToken);
-            _context.SaveChanges();
+            if ( authToken != null)
+            {
+                _context.AuthTokens.Remove(authToken);
+                _context.SaveChanges();
+            }
 
         }
 
-        public string GetUsername(string token)
+        public async Task<string?> GetUsername(string token)
         {
             var queryTokens =
                 from authtoken in _context.AuthTokens
                 where authtoken.token == token
                 select authtoken;
 
-            AuthTokens authTokens = queryTokens.FirstOrDefault();
+            AuthTokens? authTokens = queryTokens.SingleOrDefault();
 
-            var queryUsers =
-                from user in _context.User
-                where user.userID == authTokens.userID
-                select user;
+            if (authTokens != null)
+            {
+                var queryUsers =
+                    from user in _context.User
+                    where user.userID == authTokens.userID
+                    select user;
 
-            User user1 = queryUsers.FirstOrDefault();
+                User? user1 = await queryUsers.SingleOrDefaultAsync();
+                if (user1 != null)
+                {
+                    return user1.userName;
+                }
 
-            return user1.userName;
+             }
+            
+            return "404";
 
         }
 
-        public async void CreateBaseSettings(User user) 
+        public async void CreateBaseSettings(User? user) 
         {
             Settings userSettings = new Settings(user);
             await _context.Settings.AddAsync(userSettings);
             _context.SaveChanges();
         }
 
-        public Settings GetSettings(User user) 
+        public Settings? GetSettings(User? user) 
         {
             var settings =
                 from setting in _context.Settings
                 where (setting.user).userID == user.userID
                 select setting;
 
-            return settings.FirstOrDefault();
+            return settings.SingleOrDefault();
 
         }
 
-        public async void Update(User user, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, string? reminder) 
+        public void Update(User user, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, string? reminder) 
         {
             var settings =
-               from setting in _context.Settings
-               where (setting.user).userID == user.userID
-               select setting;
+               from set in _context.Settings
+               where (set.user).userID == user.userID
+               select set;
 
-            foreach (var setting in settings) {
-                setting.soundEffects = soundEffects;
-                setting.reducedMotion = reducedMotion;
-                setting.motivationalMessages = motivation;
-                setting.practiceReminder = practice;
-                setting.smartScheduling = scheduling;
-                setting.reminderTime = reminder;
+            Settings? settings1 = settings.SingleOrDefault();
+
+            if (settings1  != null) 
+            { 
+                settings1.soundEffects = soundEffects;
+                settings1.reducedMotion = reducedMotion;
+                settings1.motivationalMessages = motivation;
+                settings1.practiceReminder = practice;
+                settings1.smartScheduling = scheduling;
+                settings1.reminderTime = reminder;
             }
 
             _context.SaveChanges();
