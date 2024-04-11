@@ -35,7 +35,7 @@ namespace iMate.API.Controllers
                 string token = _service.GetToken(user.userName, user.encryptedPassword);
                 AuthTokens authtoken = new AuthTokens(user.userID, token);
                 _service.SaveToken(authtoken);
-                return Ok(authtoken);
+                return Ok(token);
              }
             
             return NotFound();

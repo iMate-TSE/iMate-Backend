@@ -35,6 +35,26 @@ namespace iMate.API.Services
 
         }
 
+        public string GetUsername(string token)
+        {
+            var queryTokens =
+                from authtoken in _context.AuthTokens
+                where authtoken.token == token
+                select authtoken;
+
+            AuthTokens authTokens = queryTokens.FirstOrDefault();
+
+            var queryUsers =
+                from user in _context.User
+                where user.userID == authTokens.userID
+                select user;
+
+            User user1 = queryUsers.FirstOrDefault();
+
+            return user1.userName;
+
+        }
+
         public async void CreateBaseSettings(User user) 
         {
             Settings userSettings = new Settings(user);

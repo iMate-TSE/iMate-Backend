@@ -19,16 +19,13 @@ namespace iMate.API.Controllers
 
         [HttpPost]
         [Route("api/v1/[controller]/LogOut")]
-        public string LogOut(string username)
+        public void LogOut(string username)
         {
             User user = _service.GetUser(username);
             if (user != null)
             {
                 _service.LogOut(user);
-                return $"Log Out Successful for {user.userName}";
             }
-            
-            return "Failed to find User";
 
         }
 
@@ -45,39 +42,47 @@ namespace iMate.API.Controllers
 
         [HttpGet]
         [Route("api/v1/[controller]/GetUserSettings")]
-        public string GetUserSettings(string username) 
+        public Dictionary<string, string> GetUserSettings(string username) 
         {
             User user = _service.GetUser(username);
-            if (user != null) 
+            if (user != null)
             {
                 Settings settings = _service.GetSettings(user);
-                string _settings = $"Settings for {(settings.user).userName}:\n";
-                _settings += $"Sound effects: {settings.soundEffects}\n";
-                _settings += $"Reduced Motion: {settings.reducedMotion}\n";
-                _settings += $"Motivational Messages: {settings.motivationalMessages}\n";
-                _settings += $"Practice Reminder: {settings.practiceReminder}\n";
-                _settings += $"Smart Scheduling: {settings.smartScheduling}\n";
-                _settings += $"Reminder Time: {settings.reminderTime}\n";
+                Dictionary<string, string> _settings = new Dictionary<string, string>() {
+                    ["sound"] = (settings.soundEffects).ToString(),
+                    ["motion"] = (settings.reducedMotion).ToString(),
+                    ["motivation"] = (settings.motivationalMessages).ToString(),
+                    ["reminder"] = (settings.practiceReminder).ToString(),
+                    ["scheduling"] =(settings.smartScheduling).ToString(),
+                    ["time"] = settings.reminderTime
+            };
 
                 return _settings ;
 
             }
 
-            return "failed to retrieve settings";
+            return new Dictionary<string, string>();
 
         }
 
         [HttpPost]
         [Route("api/v1/[controller]/UpdateUserSettings")]
-        public string UpdateSettings(string username, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, string? reminder)
+        public void UpdateSettings(string username, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, string? reminder)
         {
             User user = _service.GetUser(username);
             if (user != null)
             {
                 _service.Update(user, soundEffects, reducedMotion, motivation, practice, scheduling, reminder);
-                return GetUserSettings(username);
             }
-            return "failed to update settings";
         }
+
+        [HttpGet]
+        [Route("api/v1/[controller]/GetUsername")]
+        public string GetUsername(string token) 
+        {
+            return _service.GetUsername(token);
+        }
+
+
     }
 }
