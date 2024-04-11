@@ -7,3 +7,5 @@ Accept: application/json
 
 POST {{iMate.API_HostAddress}}/api/v1/mood
 Accept: application/json
+
+POAT

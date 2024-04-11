@@ -42,15 +42,15 @@ namespace iMate.API.Services
         }
 
         
-        public User Login (string username)
+        public Task<User?> Login (string username)
         {
         
-            var queryUsers = 
+            var queryUsers =
                 from user in _context.User
                 where user.userName == username
                 select user;
 
-            return queryUsers.SingleOrDefault();
+            return queryUsers.SingleOrDefaultAsync();
 
         }
 
