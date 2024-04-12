@@ -23,6 +23,7 @@ builder.Services.AddScoped<MoodService,  MoodService>();
 builder.Services.AddScoped<LoginService, LoginService>();
 builder.Services.AddScoped<SettingsService, SettingsService>();
 builder.Services.AddScoped<CardService, CardService>();
+builder.Services.AddScoped<ProfileService, ProfileService>();
 
 var configuration = builder.Configuration;
 
