@@ -17,13 +17,6 @@ namespace iMate.API.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        [Route("api/v1/[controller]/Hello")]
-        public IActionResult Hello()
-        {
-            return Ok("Hello World");
-        }
-
 
         [HttpPost]
         [Route("api/v1/[controller]/Signup")]

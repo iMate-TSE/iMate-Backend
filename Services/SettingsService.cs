@@ -21,6 +21,26 @@ namespace iMate.API.Services
 
            return  queryUsers.SingleOrDefault(); ;
         }
+        
+        public User? GetUser(int id)
+        {
+            
+            var queryUsers =
+                from user in _context.User
+                where user.userID == id
+                select user;
+
+            return  queryUsers.SingleOrDefault(); ;
+        }
+
+        public int GetTokenId(string token)
+        {
+            var query =
+                from authToken in _context.AuthTokens
+                where authToken.token == token
+                select authToken.userID;
+            return query.SingleOrDefault();
+        }
 
         public void LogOut(User? user)
         {

@@ -20,7 +20,7 @@ namespace iMate.API.Controllers
 
         [HttpPost]
         [Route("api/v1/[controller]/LogOut")]
-        public void LogOut([FromBody] SettingsRequest settingsRequestData)
+        public void LogOut([FromBody] LogoutRequest settingsRequestData)
         {
             if (!ModelState.IsValid)
             {
@@ -28,10 +28,11 @@ namespace iMate.API.Controllers
             }
             else
             {
-                string username = settingsRequestData.Username;
-                if (username != null)
+                string token = settingsRequestData.Token;
+                if (token != null)
                 {
-                    User? user = _service.GetUser(username);
+                    int id = _service.GetTokenId(token);
+                    User? user = _service.GetUser(id);
                     if (user != null)
                     {
                         _service.LogOut(user);
