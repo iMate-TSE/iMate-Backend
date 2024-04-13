@@ -109,8 +109,8 @@ namespace iMate.API.Controllers
                 bool motivation = settingsRequestData.Motivation;
                 bool practice = settingsRequestData.Practice;
                 bool scheduling = settingsRequestData.Scheduling;
-                string? reminder = settingsRequestData.Reminder;
-
+                TimeSpan reminder = settingsRequestData.Reminder;
+                
                 if (username != null)
                 {
                     User? user = _service.GetUser(username);
