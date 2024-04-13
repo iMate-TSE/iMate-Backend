@@ -42,15 +42,15 @@ namespace iMate.API.Services
         }
 
         
-        public User Login (string username)
+        public Task<User?> Login (string username)
         {
         
-            var queryUsers = 
+            var queryUsers =
                 from user in _context.User
                 where user.userName == username
                 select user;
 
-            return queryUsers.SingleOrDefault();
+            return queryUsers.SingleOrDefaultAsync();
 
         }
 
@@ -63,6 +63,12 @@ namespace iMate.API.Services
         {
             await _context.AuthTokens.AddAsync(token);
             _context.SaveChanges();
+        }
+
+        public async Task WipeTokens()
+        {
+            _context.AuthTokens.ToList().ForEach(Entity => _context.AuthTokens.Remove(Entity));
+            await _context.SaveChangesAsync();
         }
 
 
