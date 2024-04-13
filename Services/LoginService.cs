@@ -65,6 +65,12 @@ namespace iMate.API.Services
             _context.SaveChanges();
         }
 
+        public async Task WipeTokens()
+        {
+            _context.AuthTokens.ToList().ForEach(Entity => _context.AuthTokens.Remove(Entity));
+            await _context.SaveChangesAsync();
+        }
+
 
     }
 }

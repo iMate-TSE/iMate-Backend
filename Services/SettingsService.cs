@@ -42,15 +42,14 @@ namespace iMate.API.Services
             return query.SingleOrDefault();
         }
 
-        public void LogOut(User? user)
+        public async Task LogOut(User? user)
         {
-
-            var queryTokens =
+            var queryTokens =  
                 from token in _context.AuthTokens
                 where token.userID == user.userID
                 select token;
 
-            AuthTokens? authToken =  queryTokens.FirstOrDefault();
+            AuthTokens? authToken =  await queryTokens.FirstOrDefaultAsync();
 
             if ( authToken != null)
             {

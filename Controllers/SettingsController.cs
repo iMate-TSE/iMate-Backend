@@ -20,7 +20,7 @@ namespace iMate.API.Controllers
 
         [HttpPost]
         [Route("api/v1/[controller]/LogOut")]
-        public void LogOut([FromBody] LogoutRequest settingsRequestData)
+        public async Task LogOut([FromBody] LogoutRequest settingsRequestData)
         {
             if (!ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace iMate.API.Controllers
                     User? user = _service.GetUser(id);
                     if (user != null)
                     {
-                        _service.LogOut(user);
+                        await _service.LogOut(user);
                     }
                 }
             }

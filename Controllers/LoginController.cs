@@ -71,5 +71,13 @@ namespace iMate.API.Controllers
             return NotFound();
         }
 
+        [HttpDelete]
+        [Route("api/v1/[controller]/ClearTokens")]
+        public async Task<IActionResult> ClearTokens()
+        {
+            await _service.WipeTokens();
+            return NoContent();
+        }
+
     }
 }
