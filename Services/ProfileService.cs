@@ -28,4 +28,29 @@ public class ProfileService : BaseRepository
             select AuthToken.userID
             ).SingleOrDefaultAsync();
     }
+
+    public async Task<int> GetCredits(int ID)
+    {
+        var queryCredits =
+            from user in _context.User
+            where user.userID == ID
+            select user;
+
+        User? user1 = await queryCredits.SingleOrDefaultAsync();
+        if (user1 == null) { return -1; }
+        return user1.credits;
+    }
+
+    public async Task SetCredits(int ID, int newCredits)
+    {
+        var queryCredits =
+            from user in _context.User
+            where user.userID == ID
+            select user;
+
+        User? user1 = await queryCredits.SingleOrDefaultAsync();
+        if (user1 == null) { return; }
+        user1.credits = newCredits;
+        await _context.SaveChangesAsync();
+    }
 }
