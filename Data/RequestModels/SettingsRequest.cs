@@ -10,5 +10,5 @@ public class SettingsRequest
     public bool Motivation { get; set; }
     public bool Practice { get; set; } 
     public bool Scheduling { get; set; } 
-    public string? Reminder { get; set; }
+    public TimeSpan Reminder { get; set; }
 }

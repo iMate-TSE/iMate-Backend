@@ -14,5 +14,15 @@ namespace iMate.API.Services
         {
             return await _context.PadRanges.ToListAsync();
         }
+
+        public async Task<IEnumerable<FormQuestions>> GetFormQuestions(string category)
+        {
+            var query = await (
+                from Question in _context.FormQuestions
+                where Question.Category == category
+                select Question).ToListAsync();
+            
+            return query;
+        }
     }
 }

@@ -105,7 +105,7 @@ namespace iMate.API.Services
 
         }
 
-        public void Update(User user, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, string? reminder) 
+        public void Update(User user, bool soundEffects, bool reducedMotion, bool motivation, bool practice, bool scheduling, TimeSpan reminder) 
         {
             var settings =
                from set in _context.Settings
@@ -121,7 +121,7 @@ namespace iMate.API.Services
                 settings1.motivationalMessages = motivation;
                 settings1.practiceReminder = practice;
                 settings1.smartScheduling = scheduling;
-                settings1.reminderTime = reminder;
+                settings1.reminderTime = reminder.ToString();
             }
 
             _context.SaveChanges();

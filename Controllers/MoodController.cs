@@ -22,7 +22,6 @@ namespace iMate.API.Controllers
 
 
     [ApiController]
-    [Route("api/v1/[controller]")]
     public class MoodController : ControllerBaseExtended
     {
         private readonly MoodService _service;
@@ -37,6 +36,7 @@ namespace iMate.API.Controllers
         // POST route for mood calculation 
 
         [HttpPost]
+        [Route("api/v1/[controller]/")]
         public async Task<string> calculateMood(int Pleasure, int Arousal, int Dominance)
         {
             // http://localhost:5137/api/v1/Mood?Pleasure=2&Arousal=0&Dominance=5
@@ -49,6 +49,20 @@ namespace iMate.API.Controllers
             string mood = classifier.ClassifyEmotionByPAD(Pleasure, Arousal, Dominance);
 
             return mood;
+        }
+
+        [HttpGet]
+        [Route("api/v1/[controller]/generateQuestions")]
+        public async Task<IActionResult> generateQuestions(string moodCategory)
+        {
+            IEnumerable<FormQuestions> questions = await _service.GetFormQuestions(moodCategory);
+
+            if (questions == null)
+            {
+                return NotFound();
+            } 
+            return Ok(questions);
+
         }
     }
 }
