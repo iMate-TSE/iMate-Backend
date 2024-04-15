@@ -7,7 +7,7 @@ namespace iMate.API.Data
     {
         public void SeedData(ModelBuilder modelBuilder)
         {
-           modelBuilder.Entity<PadRanges>()
+            modelBuilder.Entity<PadRanges>()
                 .HasData(
                     //                 mood      P     A    D
                     new PadRanges(1, "Excited", 1.0f, 1.0f, 1.0f),
@@ -25,6 +25,50 @@ namespace iMate.API.Data
                     new PadRanges(13, "Depressed", 0.0f, 0.0f, 0.0f)
                 );
             
+            modelBuilder.Entity<FormQuestions>()
+                .HasData(
+                    new FormQuestions("I have felt terrible alone and isolated", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have thought of hurting myself", "Lonely/Sad/Depressed"),
+                    new FormQuestions("Talking to people has felt too much for me", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have felt like crying", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have felt overwhelmed by my problems", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have thought it would be better if I were dead", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have thought I have no friends", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have felt unhappy", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have been irritable when with other people", "Lonely/Sad/Depressed"),
+                    new FormQuestions("I have felt humiliated or shamed by other people", "Lonely/Sad/Depressed"),
+                    
+                    // Anxious/Stressed
+                    new FormQuestions("I have felt tense, nervous, or anxious", "Anxious/Stressed"),
+                    new FormQuestions("I have been troubled by aches, pains, or other physical problems", "Anxious/Stressed"),
+                    new FormQuestions("Tension and anxiety have prevented me from doing important things", "Anxious/Stressed"),
+                    new FormQuestions("I have been disturbed by unwanted thoughts and feelings", "Anxious/Stressed"),
+                    new FormQuestions("I have felt panic or terror", "Anxious/Stressed"),
+                    new FormQuestions("I have had difficulty getting to sleep or staying asleep", "Anxious/Stressed"),
+                    new FormQuestions("Unwanted images or memories have been distressing me", "Anxious/Stressed"),
+                    new FormQuestions("I have felt criticised by other people", "Anxious/Stressed"),
+                    new FormQuestions("I have thought I am to blame for my problems and difficulties", "Anxious/Stressed"),
+
+                    // Loved/Grateful
+                    new FormQuestions("I have felt I have someone to turn to for support when needed", "Loved/Grateful"),
+                    new FormQuestions("I have felt warmth or affection for someone", "Loved/Grateful"),
+
+                    // Happy/Excited
+                    new FormQuestions("I have been happy with the things I have done", "Happy/Excited"),
+                    new FormQuestions("I have felt optimistic about my future", "Happy/Excited"),
+                    new FormQuestions("I have achieved the things I wanted to do", "Happy/Excited"),
+
+                    // Angry/Disgusted
+                    new FormQuestions("I have been physically violent towards others", "Angry/Disgusted"),
+                    new FormQuestions("I have threatened or intimidated another person", "Angry/Disgusted"),
+                    new FormQuestions("I have hurt myself physically or taken dangerous risks with my health", "Angry/Disgusted"),
+
+                    // Relaxed/Bored/Sleepy
+                    new FormQuestions("I have felt ok about myself", "Relaxed/Bored/Sleepy"),
+                    new FormQuestions("I have felt totally lacking in energy and enthusiasm", "Relaxed/Bored/Sleepy"),
+                    new FormQuestions("My problems have been impossible to put to one side", "Relaxed/Bored/Sleepy"),
+                    new FormQuestions("I have felt able to cope when things go wrong", "Relaxed/Bored/Sleepy")
+                );
 
             modelBuilder.Entity<TarotCards>()
                 .HasData(

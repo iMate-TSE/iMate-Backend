@@ -11,8 +11,16 @@ namespace iMate.API.Data.Models
 
         public string? Question { get; set; }
 
-        public ICollection<string> multipleChoice { get; set; } = new List<string>();
+        public string? Category { get; set; }
 
-        public bool isHappy { get; set; }
+        public static int id = 0;
+        
+        public FormQuestions(string Question, string Category)
+        {
+            id++;
+            this.formQuestionID = id;
+            this.Question = Question;
+            this.Category = Category;
+        }
     }
 }

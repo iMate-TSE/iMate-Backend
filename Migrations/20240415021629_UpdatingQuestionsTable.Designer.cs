@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using iMate.API.Data;
@@ -11,9 +12,11 @@ using iMate.API.Data;
 namespace iMate.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240415021629_UpdatingQuestionsTable")]
+    partial class UpdatingQuestionsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,194 +55,6 @@ namespace iMate.API.Migrations
                     b.HasKey("formQuestionID");
 
                     b.ToTable("FormQuestions");
-
-                    b.HasData(
-                        new
-                        {
-                            formQuestionID = 32,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have felt terrible alone and isolated"
-                        },
-                        new
-                        {
-                            formQuestionID = 33,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have thought of hurting myself"
-                        },
-                        new
-                        {
-                            formQuestionID = 34,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "Talking to people has felt too much for me"
-                        },
-                        new
-                        {
-                            formQuestionID = 35,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have felt like crying"
-                        },
-                        new
-                        {
-                            formQuestionID = 36,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have felt overwhelmed by my problems"
-                        },
-                        new
-                        {
-                            formQuestionID = 37,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have thought it would be better if I were dead"
-                        },
-                        new
-                        {
-                            formQuestionID = 38,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have thought I have no friends"
-                        },
-                        new
-                        {
-                            formQuestionID = 39,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have felt unhappy"
-                        },
-                        new
-                        {
-                            formQuestionID = 40,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have been irritable when with other people"
-                        },
-                        new
-                        {
-                            formQuestionID = 41,
-                            Category = "Lonely/Sad/Depressed",
-                            Question = "I have felt humiliated or shamed by other people"
-                        },
-                        new
-                        {
-                            formQuestionID = 42,
-                            Category = "Anxious/Stressed",
-                            Question = "I have felt tense, nervous, or anxious"
-                        },
-                        new
-                        {
-                            formQuestionID = 43,
-                            Category = "Anxious/Stressed",
-                            Question = "I have been troubled by aches, pains, or other physical problems"
-                        },
-                        new
-                        {
-                            formQuestionID = 44,
-                            Category = "Anxious/Stressed",
-                            Question = "Tension and anxiety have prevented me from doing important things"
-                        },
-                        new
-                        {
-                            formQuestionID = 45,
-                            Category = "Anxious/Stressed",
-                            Question = "I have been disturbed by unwanted thoughts and feelings"
-                        },
-                        new
-                        {
-                            formQuestionID = 46,
-                            Category = "Anxious/Stressed",
-                            Question = "I have felt panic or terror"
-                        },
-                        new
-                        {
-                            formQuestionID = 47,
-                            Category = "Anxious/Stressed",
-                            Question = "I have had difficulty getting to sleep or staying asleep"
-                        },
-                        new
-                        {
-                            formQuestionID = 48,
-                            Category = "Anxious/Stressed",
-                            Question = "Unwanted images or memories have been distressing me"
-                        },
-                        new
-                        {
-                            formQuestionID = 49,
-                            Category = "Anxious/Stressed",
-                            Question = "I have felt criticised by other people"
-                        },
-                        new
-                        {
-                            formQuestionID = 50,
-                            Category = "Anxious/Stressed",
-                            Question = "I have thought I am to blame for my problems and difficulties"
-                        },
-                        new
-                        {
-                            formQuestionID = 51,
-                            Category = "Loved/Grateful",
-                            Question = "I have felt I have someone to turn to for support when needed"
-                        },
-                        new
-                        {
-                            formQuestionID = 52,
-                            Category = "Loved/Grateful",
-                            Question = "I have felt warmth or affection for someone"
-                        },
-                        new
-                        {
-                            formQuestionID = 53,
-                            Category = "Happy/Excited",
-                            Question = "I have been happy with the things I have done"
-                        },
-                        new
-                        {
-                            formQuestionID = 54,
-                            Category = "Happy/Excited",
-                            Question = "I have felt optimistic about my future"
-                        },
-                        new
-                        {
-                            formQuestionID = 55,
-                            Category = "Happy/Excited",
-                            Question = "I have achieved the things I wanted to do"
-                        },
-                        new
-                        {
-                            formQuestionID = 56,
-                            Category = "Angry/Disgusted",
-                            Question = "I have been physically violent towards others"
-                        },
-                        new
-                        {
-                            formQuestionID = 57,
-                            Category = "Angry/Disgusted",
-                            Question = "I have threatened or intimidated another person"
-                        },
-                        new
-                        {
-                            formQuestionID = 58,
-                            Category = "Angry/Disgusted",
-                            Question = "I have hurt myself physically or taken dangerous risks with my health"
-                        },
-                        new
-                        {
-                            formQuestionID = 59,
-                            Category = "Relaxed/Bored/Sleepy",
-                            Question = "I have felt ok about myself"
-                        },
-                        new
-                        {
-                            formQuestionID = 60,
-                            Category = "Relaxed/Bored/Sleepy",
-                            Question = "I have felt totally lacking in energy and enthusiasm"
-                        },
-                        new
-                        {
-                            formQuestionID = 61,
-                            Category = "Relaxed/Bored/Sleepy",
-                            Question = "My problems have been impossible to put to one side"
-                        },
-                        new
-                        {
-                            formQuestionID = 62,
-                            Category = "Relaxed/Bored/Sleepy",
-                            Question = "I have felt able to cope when things go wrong"
-                        });
                 });
 
             modelBuilder.Entity("iMate.API.Data.Models.MoodEntry", b =>
