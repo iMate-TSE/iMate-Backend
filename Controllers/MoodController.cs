@@ -35,7 +35,7 @@ namespace iMate.API.Controllers
 
         // POST route for mood calculation 
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/v1/[controller]/")]
         public async Task<string> calculateMood(int Pleasure, int Arousal, int Dominance)
         {
