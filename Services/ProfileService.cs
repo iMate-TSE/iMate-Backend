@@ -53,4 +53,9 @@ public class ProfileService : BaseRepository
         user1.credits = newCredits;
         await _context.SaveChangesAsync();
     }
+
+    public async Task UpdateProfile(int ID, int age, string gender, string username)
+    {
+        
+    }
 }
