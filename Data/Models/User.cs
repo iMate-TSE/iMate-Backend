@@ -11,6 +11,8 @@ namespace iMate.API.Data.Models
 
         [Required, MaxLength(100)]
         public string? userName { get; set; }
+        
+        public string? fullName { get; set; }
 
         public string? avatarPath { get; set; }
 
@@ -36,6 +38,7 @@ namespace iMate.API.Data.Models
             this.avatarPath = null;
             this.encryptedPassword = encryptedPassword;
             this.age = null;
+            this.fullName = "";
             this.gender = null;
             this.credits = 0;
             this.streak = 0;
