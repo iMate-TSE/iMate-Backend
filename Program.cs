@@ -32,6 +32,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("iMateDatabase"));
 });
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 builder.Services.AddScoped<DatabaseSeeder>();
 
 var app = builder.Build();

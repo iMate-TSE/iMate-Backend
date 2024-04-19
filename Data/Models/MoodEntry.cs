@@ -15,6 +15,18 @@ namespace iMate.API.Data.Models
         [DataType(DataType.DateTime)]
         public DateTime date { get; set; }
 
-        public PadRanges? mood { get; set; }
+        public int? moodID { get; set; }
+
+        public MoodEntry()
+        {
+            
+        }      
+        
+        public MoodEntry(int userID, DateTime date, int moodID)
+        {
+            this.userID = userID;
+            this.date = date;
+            this.moodID = moodID;
+        }
     }
 }

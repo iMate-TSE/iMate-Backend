@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using iMate.API.Data;
@@ -11,9 +12,11 @@ using iMate.API.Data;
 namespace iMate.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240419104220_UpdateMoodEntry")]
+    partial class UpdateMoodEntry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,7 +254,7 @@ namespace iMate.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("moodID")
                         .HasColumnType("integer");
@@ -1885,9 +1888,6 @@ namespace iMate.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("encryptedPassword")
-                        .HasColumnType("text");
-
-                    b.Property<string>("fullName")
                         .HasColumnType("text");
 
                     b.Property<string>("gender")

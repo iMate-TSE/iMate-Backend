@@ -11,7 +11,7 @@ public class ProfileService : BaseRepository
         
     }
 
-    public async Task<User> GetProfile(int ID)
+    public async Task<User?> GetProfile(int ID)
     {
         return await (
             from Profile in _context.User
@@ -54,8 +54,17 @@ public class ProfileService : BaseRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateProfile(int ID, int age, string gender, string username)
+    public async Task UpdateProfile(int ID, int age, string gender, string username, string fullname)
     {
-        
+        User? profile = await GetProfile(ID);
+
+        if (profile != null)
+        {
+            profile.age = age;
+            profile.gender = gender;
+            profile.userName = username;
+            profile.fullName = fullname;
+            await _context.SaveChangesAsync();
+        }
     }
 }

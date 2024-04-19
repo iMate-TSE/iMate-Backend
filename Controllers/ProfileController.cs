@@ -22,7 +22,7 @@ public class ProfileController : ControllerBase
         try
         {
             int UserID = await _service.GetUserID(Token);
-            User user = await _service.GetProfile(UserID);
+            User? user = await _service.GetProfile(UserID);
             return Ok(user);
         }
         catch (Exception e)
@@ -37,7 +37,7 @@ public class ProfileController : ControllerBase
         try
         {
             int id = await _service.GetUserID(req.token);
-            await _service.UpdateProfile(id, req.age, req.gender, req.username);
+            await _service.UpdateProfile(id, req.age, req.gender, req.username, req.fullname);
         }
         catch (Exception e)
         {

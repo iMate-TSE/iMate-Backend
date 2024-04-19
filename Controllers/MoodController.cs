@@ -1,4 +1,5 @@
 ﻿using iMate.API.Data.Models;
+using iMate.API.Data.RequestModels;
 using iMate.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -63,6 +64,43 @@ namespace iMate.API.Controllers
             } 
             return Ok(questions);
 
+        }
+
+        [HttpGet]
+        [Route("api/v1/[controller]/summary")]
+        public async Task<IActionResult> journalData(string token)
+        {
+            IEnumerable<MoodEntry> journal = await _service.GetJournalSummary(token);
+
+            if (journal == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(journal);
+        }
+
+        [HttpPost]
+        [Route("api/v1/[controller]/save")]
+        public async Task<IActionResult> saveMood([FromBody] MoodSaveRequest req)
+        {
+            if (!ModelState.IsValid)
+            {
+                // model state is a built in thing that validates the data in the form body
+                return BadRequest(ModelState);
+            }
+            
+            try
+            {
+                await _service.SaveMoodEntry(req.token, req.mood);
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                return BadRequest(e);
+            }
+
+            return Ok("Result Saved");
         }
     }
 }
