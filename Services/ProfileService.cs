@@ -41,7 +41,7 @@ public class ProfileService : BaseRepository
         return user1.credits;
     }
 
-    public async Task SetCredits(int ID, int newCredits)
+    public async Task SetCredits(int ID, int increment)
     {
         var queryCredits =
             from user in _context.User
@@ -50,7 +50,7 @@ public class ProfileService : BaseRepository
 
         User? user1 = await queryCredits.SingleOrDefaultAsync();
         if (user1 == null) { return; }
-        user1.credits = newCredits;
+        user1.credits = (user1.credits + increment);
         await _context.SaveChangesAsync();
     }
 
