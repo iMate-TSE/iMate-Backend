@@ -93,6 +93,7 @@ namespace iMate.API.Controllers
             try
             {
                 await _service.SaveMoodEntry(req.token, req.mood);
+                await _service.CheckAndUpdateStreak(req.token);
             }
             catch (Exception e)
             {

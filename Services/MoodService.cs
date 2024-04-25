@@ -62,6 +62,33 @@ namespace iMate.API.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task CheckAndUpdateStreak(string token)
+        {
+            int userID = await GetUserID(token);
+
+            var lastMoodEntry = await (
+                from Entry in _context.MoodEntry
+                select Entry
+                ).LastAsync();
+            
+            var lastMoodLog = DateOnly.FromDateTime(lastMoodEntry.date);
+            
+            var user = await (
+                from User in _context.User
+                where User.userID == userID
+                select User
+            ).SingleOrDefaultAsync();
+
+            if (user != null)
+            {
+                if ((lastMoodLog.AddDays(1) == new DateOnly()) || user.streak == 0)
+                {
+                    user.streak += 1;
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
+
         public async Task<IEnumerable<MoodEntry>> GetJournalSummary(string token)
         {
             int id = await GetUserID(token);
