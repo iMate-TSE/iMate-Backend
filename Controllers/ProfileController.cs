@@ -37,7 +37,7 @@ public class ProfileController : ControllerBase
         try
         {
             int id = await _service.GetUserID(req.token);
-            await _service.UpdateProfile(id, req.age, req.gender, req.username, req.fullname);
+            await _service.UpdateProfile(id, req.age, req.gender, req.username, req.fullname, req.avatarPath);
         }
         catch (Exception e)
         {
@@ -88,5 +88,21 @@ public class ProfileController : ControllerBase
         }
 
         return Ok();
+    }
+    
+    [HttpGet]
+    [Route("getStreak")]
+    public async Task<IActionResult> getStreak(string Token)
+    {
+        try 
+        {
+            int UserID = await _service.GetUserID(Token);
+            int streak = await _service.GetStreak(UserID);
+            return Ok(streak);
+        }
+        catch (Exception e) 
+        {
+            return NotFound();
+        }
     }
 }
