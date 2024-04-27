@@ -80,13 +80,20 @@ namespace iMate.API.Controllers
             return Ok(journal);
         }
 
+        [HttpDelete]
+        [Route("api/v1/[controller]/removeEntry")]
+        public async Task removeEntry(int id)
+        {
+            await _service.RemoveMoodEntry(id);
+        }
+
         [HttpPost]
         [Route("api/v1/[controller]/save")]
         public async Task<IActionResult> saveMood([FromBody] MoodSaveRequest req)
         {
             if (!ModelState.IsValid)
             {
-                // model state is a built in thing that validates the data in the form body
+                // model state is a built-in thing that validates the data in the form body
                 return BadRequest(ModelState);
             }
             

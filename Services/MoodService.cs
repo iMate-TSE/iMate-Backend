@@ -13,7 +13,7 @@ namespace iMate.API.Services
         }
     }
     
-    public class MoodService(DataContext ctx) : BaseRepository(ctx)
+    public class MoodService(DataContext ctx, ILogger<MoodService> logger) : BaseRepository(ctx)
     {
         // Pass the context to the BaseRepo
 
@@ -21,22 +21,22 @@ namespace iMate.API.Services
 
         public async Task<IEnumerable<PadRanges>> GetPADDictionary()
         {
-            return await _context.PadRanges.ToListAsync();
+            return await ctx.PadRanges.ToListAsync();
         }
         
         public async Task<int> GetUserID(String Token)
         {
             return await (
-                from AuthToken in _context.AuthTokens
+                from AuthToken in ctx.AuthTokens
                 where AuthToken.token == Token
                 select AuthToken.userID
             ).SingleOrDefaultAsync();
         }
-
+        
         public async Task<IEnumerable<FormQuestions>> GetFormQuestions(string category)
         {
             var query = await (
-                from Question in _context.FormQuestions
+                from Question in ctx.FormQuestions
                 where Question.Category == category
                 select Question).ToListAsync();
             
@@ -46,7 +46,7 @@ namespace iMate.API.Services
         public async Task<int> GetMoodID(string mood)
         {
             var query = await (
-                from Moods in _context.PadRanges
+                from Moods in ctx.PadRanges
                 where Moods.mood == mood
                 select Moods.moodID).SingleOrDefaultAsync();
             return query;
@@ -58,8 +58,22 @@ namespace iMate.API.Services
             int moodId = await GetMoodID(mood);
 
             MoodEntry entry = new MoodEntry(id, DateTime.Now, moodId);
-            await _context.MoodEntry.AddAsync(entry);
-            await _context.SaveChangesAsync();
+            await ctx.MoodEntry.AddAsync(entry); 
+            await ctx.SaveChangesAsync();
+        }
+
+        public async Task RemoveMoodEntry(int id)
+        {
+            var entry = await (
+                from Entry in ctx.MoodEntry
+                where Entry.Id == id
+                select Entry
+            ).FirstOrDefaultAsync();
+            if (entry != null)
+            {
+                ctx.MoodEntry.Remove(entry);
+                await ctx.SaveChangesAsync();
+            }
         }
 
         public async Task CheckAndUpdateStreak(string token)
@@ -67,24 +81,32 @@ namespace iMate.API.Services
             int userID = await GetUserID(token);
 
             var lastMoodEntry = await (
-                from Entry in _context.MoodEntry
+                from Entry in ctx.MoodEntry
+                orderby Entry.date
                 select Entry
-                ).LastAsync();
+            ).Reverse().FirstOrDefaultAsync();
+            
             
             var lastMoodLog = DateOnly.FromDateTime(lastMoodEntry.date);
             
+            logger.LogInformation(lastMoodLog.ToString());
+            logger.LogInformation(lastMoodLog.AddDays(1).ToString());
+            logger.LogInformation(DateOnly.FromDateTime(DateTime.Now).ToString());
+            logger.LogInformation((DateOnly.FromDateTime(DateTime.Now) == lastMoodLog.AddDays(1)).ToString());
+            
             var user = await (
-                from User in _context.User
+                from User in ctx.User
                 where User.userID == userID
                 select User
             ).SingleOrDefaultAsync();
 
             if (user != null)
             {
-                if ((lastMoodLog.AddDays(1) == new DateOnly()) || user.streak == 0)
+                if ((lastMoodLog.AddDays(1) == DateOnly.FromDateTime(DateTime.Now)) || user.streak == 0)
                 {
                     user.streak += 1;
-                    await _context.SaveChangesAsync();
+                    logger.LogInformation(user.streak.ToString());
+                    await ctx.SaveChangesAsync();
                 }
             }
         }
@@ -99,7 +121,7 @@ namespace iMate.API.Services
             var endOfWeek = startOfWeek.AddDays(6);
 
             var query = await (
-                from Entry in _context.MoodEntry
+                from Entry in ctx.MoodEntry
                 where Entry.date >= startOfWeek && Entry.date <= endOfWeek && Entry.userID == id
                 select Entry).ToListAsync();
             return query;

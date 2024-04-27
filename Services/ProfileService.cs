@@ -41,6 +41,23 @@ public class ProfileService : BaseRepository
         return user1.credits;
     }
 
+    public async Task<int> GetStreak(int ID)
+    {
+        var queryStreak =
+            from User in _context.User
+            where User.userID == ID
+            select User;
+        User? user = await queryStreak.SingleOrDefaultAsync();
+        if (user == null)
+        {
+            return -1;
+        }
+
+        return user.streak;
+
+    }
+    
+
     public async Task SetCredits(int ID, int increment)
     {
         var queryCredits =
@@ -54,7 +71,7 @@ public class ProfileService : BaseRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateProfile(int ID, int age, string gender, string username, string fullname)
+    public async Task UpdateProfile(int ID, int age, string gender, string username, string fullname, string avatarPath)
     {
         User? profile = await GetProfile(ID);
 
@@ -64,6 +81,8 @@ public class ProfileService : BaseRepository
             profile.gender = gender;
             profile.userName = username;
             profile.fullName = fullname;
+            profile.avatarPath = avatarPath;
+            
             await _context.SaveChangesAsync();
         }
     }
